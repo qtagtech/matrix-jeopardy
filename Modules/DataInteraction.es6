@@ -94,6 +94,7 @@ export var Users = (() => {
 	return {
 		GetUser: ({ username, password }) => {
 			return new Promise((resolve, reject) => {
+				console.log(`DEBUG:::::::username::::${username}`);
 				userModel.findOne({ Login: username })
 					.exec((err, user) => {
 						if(err)

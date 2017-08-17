@@ -12,7 +12,7 @@ export default class SetupViewModel {
 		var categoriesLoaded = false;
 		this._ErrorHandler = new ErrorHandler();
 
-		this.Title = ko.observable('Jeopardy Setup');
+		this.Title = ko.observable('Matrix Jeopardy Setup');
 		this.OnlineGame = ko.observable(onlineGame);
 		this.GameName = ko.observable(gameName);
 		this.HasRequired = ko.observable(hasRequired);

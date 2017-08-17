@@ -2,9 +2,10 @@ import { Categories, Users, Questions, Games } from '../Modules/DataInteraction'
 
 export default function Bootstrap (router) {
 	// Login a user
-	router.post('/api/Home/Login', (req, res, next) => {
-		var username = req.body['username'] || req.params['username'];
-		var password = req.body['password'] || req.params['password'];
+	router.get('/api/Home/Login', (req, res, next) => {
+		console.log(`DEBUG:::Loin User`);
+		var username = req.body['username'] || req.params['username'] || req.query.username;
+		var password = req.query.pa;
 
 		req.session.user = undefined;
 

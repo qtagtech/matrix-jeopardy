@@ -32,7 +32,7 @@ exports.boot = function(callback)
 function BootApplication(app, next)
 {
 	// all environments
-	app.set('port', process.env.PORT || 3000);
+	app.set('port', process.env.PORT || 8888);
 	app.use("/public", express.static(path.join(__dirname, 'public')));
 	app.use('/Views/Templates', express.static(path.join(__dirname, 'Views/Templates')));
 
@@ -50,19 +50,19 @@ function BootApplication(app, next)
 
 	app.configure('development', function()
 	{
-		app.set('db-uri', 'mongodb://localhost/jeopardy-dev');
+		app.set('db-uri', 'mongodb://localhost:27017/new-jeopardy-dev');
 		app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 	});
 
 	app.configure('production', function()
 	{
-		app.set('db-uri', 'mongodb://localhost/jeopardy');
+		app.set('db-uri', 'mongodb://localhost:27017/jeopardy');
 		app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 	});
 
 	app.configure('test', function()
 	{
-		app.set('db-uri', 'mongodb://localhost/jeopardy-test');
+		app.set('db-uri', 'mongodb://localhost:27017/jeopardy-test');
 		app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 	});
 
